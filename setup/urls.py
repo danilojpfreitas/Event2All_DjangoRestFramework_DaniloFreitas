@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from event2all.views import UsersViewSet, EventViewSet, ListEventsByUserId, UserList, UserDetail
+from event2all.views import UsersViewSet, EventViewSet, ListEventsByUserId, UserList, UserDetail, QuotationViewSet, ListQuotationByEventId
 from rest_framework import routers
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -25,13 +25,15 @@ from authentication.views import RegisterView
 router = routers.DefaultRouter()
 router.register('user', UsersViewSet, basename='User')
 router.register('event', EventViewSet, basename='Event')
+router.register('quotation', QuotationViewSet, basename='Quotation')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('users/', UserList.as_view()),
     path('users/<int:pk>/', UserDetail.as_view()),
-    path('event/byIdUser/<int:pk>/', ListEventsByUserId.as_view()),
+    path('event/byUserID/<int:pk>/', ListEventsByUserId.as_view()),
+    path('quotation/event/<int:pk>/', ListQuotationByEventId.as_view()),
     path('auth/', TokenObtainPairView.as_view()),
     path('auth/refresh/', TokenRefreshView.as_view()),
     path('register/', RegisterView.as_view())

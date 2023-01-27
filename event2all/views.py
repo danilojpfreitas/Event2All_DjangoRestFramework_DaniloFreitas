@@ -1,8 +1,11 @@
 from rest_framework import viewsets, generics
-from event2all.models import User, Event
-from event2all.serializer import UserSerializer, EventSerializer, ListEventsByUserIdSerializer
+from event2all.models import User, Event, Quotation, Guest, ToDoList
+from event2all.serializer import UserSerializer, EventSerializer, ListEventsByUserIdSerializer, QuotationSerializer, \
+    GuestSerializer, ToDoListSerializer
 from rest_framework.permissions import IsAuthenticated
 
+
+# User OK
 
 class UsersViewSet(viewsets.ModelViewSet):
     """Exibindo todos os Users"""
@@ -29,6 +32,8 @@ class UserDetail(generics.RetrieveAPIView):
     permission_classes = (IsAuthenticated,)
 
 
+# Event
+
 class EventViewSet(viewsets.ModelViewSet):
     """Exibindo todos os Events"""
     queryset = Event.objects.all()
@@ -48,3 +53,24 @@ class ListEventsByUserId(generics.ListAPIView):
 
     permission_classes = (IsAuthenticated,)
 
+
+# Quotation
+
+class QuotationViewSet(viewsets.ModelViewSet):
+    """Exibindo todos os Guest"""
+    queryset = Quotation.objects.all()
+    serializer_class = QuotationSerializer
+
+    permission_classes = (IsAuthenticated,)
+
+
+class ListQuotationByEventId(generics.ListAPIView):
+    """Listando as Quotation pelo ID do Event"""
+
+    def get_queryset(self):
+        queryset = Quotation.objects.filter(event_id=self.kwargs['pk'])
+        return queryset
+
+    serializer_class = QuotationSerializer
+
+    permission_classes = (IsAuthenticated,)

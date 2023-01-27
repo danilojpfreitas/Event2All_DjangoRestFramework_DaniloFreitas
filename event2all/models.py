@@ -26,3 +26,33 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Quotation(models.Model):
+    event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
+    description = models.CharField(max_length=200)
+    contact = models.CharField(max_length=30)
+    provider = models.CharField(max_length=30)
+    expected_expense = models.IntegerField()
+    actual_expense = models.IntegerField()
+    amount_already_paid = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False)
+    updated_at = models.DateTimeField(auto_now=True, null=False, blank=False)
+
+
+class Guest(models.Model):
+    event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
+    name = models.CharField(max_length=30)
+    contact = models.CharField(max_length=30)
+    invite = models.BooleanField(default=False)
+    isConfirmed = models.CharField(max_length=30)
+    created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False)
+    updated_at = models.DateTimeField(auto_now=True, null=False, blank=False)
+
+
+class ToDoList(models.Model):
+    event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
+    contact = models.CharField(max_length=30)
+    done = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False)
+    updated_at = models.DateTimeField(auto_now=True, null=False, blank=False)

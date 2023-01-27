@@ -1,7 +1,9 @@
 from rest_framework import serializers
-from event2all.models import User, Event
+from event2all.models import User, Event, Quotation, Guest, ToDoList
 from django.contrib.auth.hashers import make_password
 
+
+# User
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,6 +17,8 @@ class UserSerializer(serializers.ModelSerializer):
             return super(UserSerializer, self).create(validate_data)
 
 
+# Event
+
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
@@ -25,4 +29,29 @@ class EventSerializer(serializers.ModelSerializer):
 class ListEventsByUserIdSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
+        fields = '__all__'
+
+
+# Quotation
+
+class QuotationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Quotation
+        fields = '__all__'
+
+
+# Guest
+
+class GuestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Guest
+        fields = '__all__'
+
+
+# ToDoList
+
+
+class ToDoListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ToDoList
         fields = '__all__'
