@@ -18,6 +18,10 @@ from django.urls import path, include
 from event2all.views import UsersViewSet, EventViewSet, ListEventsByUserId, UserList, UserDetail
 from rest_framework import routers
 
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+from authentication.views import RegisterView
+
 router = routers.DefaultRouter()
 router.register('user', UsersViewSet, basename='User')
 router.register('event', EventViewSet, basename='Event')
@@ -27,5 +31,8 @@ urlpatterns = [
     path('', include(router.urls)),
     path('users/', UserList.as_view()),
     path('users/<int:pk>/', UserDetail.as_view()),
-    path('event/byIdUser/<int:pk>/', ListEventsByUserId.as_view())
+    path('event/byIdUser/<int:pk>/', ListEventsByUserId.as_view()),
+    path('auth/', TokenObtainPairView.as_view()),
+    path('auth/refresh/', TokenRefreshView.as_view()),
+    path('register/', RegisterView.as_view())
 ]

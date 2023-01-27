@@ -11,24 +11,18 @@ class UserSerializer(serializers.ModelSerializer):
 
         def create(self, validate_data):
             validate_data['password'] = make_password(validate_data['password'])
+
             return super(UserSerializer, self).create(validate_data)
 
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['id', 'place', 'name', 'date', 'managers', 'invite_number', 'event_budget', 'created_at', 'updated_at', 'user_id']
+        fields = ['id', 'place', 'name', 'date', 'managers', 'invite_number', 'event_budget', 'created_at',
+                  'updated_at', 'user_id']
 
 
 class ListEventsByUserIdSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = '__all__'
-
-
-class AuthUserSerializer(serializers.ModelSerializer):
-    auth = serializers.PrimaryKeyRelatedField(many=True, queryset=User.objects.all())
-
-    class Meta:
-        model = User
-        fields = ['id', 'name', 'password']
