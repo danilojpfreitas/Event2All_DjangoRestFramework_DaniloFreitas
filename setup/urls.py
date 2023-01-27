@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from event2all.views import UsersViewSet, EventViewSet, ListEventsByUserId, UserList, UserDetail, QuotationViewSet, ListQuotationByEventId
+from event2all.views import UsersViewSet, EventViewSet, ListEventsByUserId, UserList, UserDetail, QuotationViewSet, ListQuotationByEventId, ResponseExpectedExpenseByEventId
 from rest_framework import routers
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -34,6 +34,7 @@ urlpatterns = [
     path('users/<int:pk>/', UserDetail.as_view()),
     path('event/byUserID/<int:pk>/', ListEventsByUserId.as_view()),
     path('quotation/event/<int:pk>/', ListQuotationByEventId.as_view()),
+    path('quotation/allExpectedExpense/<int:pk>/', ResponseExpectedExpenseByEventId.as_view()),
     path('auth/', TokenObtainPairView.as_view()),
     path('auth/refresh/', TokenRefreshView.as_view()),
     path('register/', RegisterView.as_view())

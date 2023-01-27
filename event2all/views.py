@@ -54,6 +54,17 @@ class ListEventsByUserId(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
 
 
+class ResponseExpectedExpenseByEventId(generics.ListAPIView):
+
+    def get_queryset(self):
+        queryset = Quotation.objects.filter(event_id=self.kwargs['pk'])
+        return queryset
+
+    serializer_class = QuotationSerializer
+
+    permission_classes = (IsAuthenticated,)
+
+
 # Quotation
 
 class QuotationViewSet(viewsets.ModelViewSet):

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from event2all.models import User, Event, Quotation, Guest, ToDoList
 from django.contrib.auth.hashers import make_password
+from event2all.validators import *
 
 
 # User
@@ -11,10 +12,14 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'email', 'birth_date', 'password', 'created_at', 'updated_at']
         extra_kwargs = {'password': {'write_only': True}}
 
-        def create(self, validate_data):
-            validate_data['password'] = make_password(validate_data['password'])
+#    def validate(self, data):
+#        if not validate_name(data['name']):
+#            raise serializers.ValidationError({"Somente letras são validas para o nome."})
+#        return data
 
-            return super(UserSerializer, self).create(validate_data)
+    def create(self, validate_data):
+        validate_data['password'] = make_password(validate_data['password'])
+        return super(UserSerializer, self).create(validate_data)
 
 
 # Event
