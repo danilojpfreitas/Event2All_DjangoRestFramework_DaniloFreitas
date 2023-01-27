@@ -1,8 +1,9 @@
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, filters
 from event2all.models import User, Event, Quotation, Guest, ToDoList
 from event2all.serializer import UserSerializer, EventSerializer, ListEventsByUserIdSerializer, QuotationSerializer, \
     GuestSerializer, ToDoListSerializer
 from rest_framework.permissions import IsAuthenticated
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 # User OK
@@ -11,6 +12,9 @@ class UsersViewSet(viewsets.ModelViewSet):
     """Exibindo todos os Users"""
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
+    ordering_fields = ['name']
+    search_fields = ['name']
 
     permission_classes = (IsAuthenticated,)
 
