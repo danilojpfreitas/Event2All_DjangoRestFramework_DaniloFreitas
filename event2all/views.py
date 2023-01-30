@@ -1,9 +1,10 @@
-from rest_framework import viewsets, generics, filters
+from rest_framework import viewsets, generics, filters, status
 from event2all.models import User, Event, Quotation, Guest, ToDoList
 from event2all.serializer import UserSerializer, EventSerializer, ListEventsByUserIdSerializer, QuotationSerializer, \
     GuestSerializer, ToDoListSerializer
 from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.response import Response
 
 
 # User OK
@@ -16,7 +17,15 @@ class UsersViewSet(viewsets.ModelViewSet):
     ordering_fields = ['name']
     search_fields = ['name']
 
-    permission_classes = (IsAuthenticated,)
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            headers = self.get_success_headers(serializer.data)
+            id = str(serializer.data['id'])
+            response = Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+            response['Location'] = request.build_absolute_uri() + id
+            return response
 
 
 class UserList(generics.ListAPIView):
@@ -26,14 +35,10 @@ class UserList(generics.ListAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    permission_classes = (IsAuthenticated,)
-
 
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-    permission_classes = (IsAuthenticated,)
 
 
 # Event
@@ -42,8 +47,6 @@ class EventViewSet(viewsets.ModelViewSet):
     """Exibindo todos os Events"""
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-
-    permission_classes = (IsAuthenticated,)
 
 
 class ListEventsByUserId(generics.ListAPIView):
@@ -55,8 +58,6 @@ class ListEventsByUserId(generics.ListAPIView):
 
     serializer_class = ListEventsByUserIdSerializer
 
-    permission_classes = (IsAuthenticated,)
-
 
 class ResponseExpectedExpenseByEventId(generics.ListAPIView):
 
@@ -66,8 +67,6 @@ class ResponseExpectedExpenseByEventId(generics.ListAPIView):
 
     serializer_class = QuotationSerializer
 
-    permission_classes = (IsAuthenticated,)
-
 
 # Quotation
 
@@ -75,8 +74,6 @@ class QuotationViewSet(viewsets.ModelViewSet):
     """Exibindo todos os Guest"""
     queryset = Quotation.objects.all()
     serializer_class = QuotationSerializer
-
-    permission_classes = (IsAuthenticated,)
 
 
 class ListQuotationByEventId(generics.ListAPIView):
@@ -87,5 +84,3 @@ class ListQuotationByEventId(generics.ListAPIView):
         return queryset
 
     serializer_class = QuotationSerializer
-
-    permission_classes = (IsAuthenticated,)
