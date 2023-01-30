@@ -52,7 +52,7 @@ class Guest(models.Model):
 
 class ToDoList(models.Model):
     event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
-    contact = models.CharField(max_length=30)
+    content = models.CharField(max_length=30)
     done = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False)
     updated_at = models.DateTimeField(auto_now=True, null=False, blank=False)
