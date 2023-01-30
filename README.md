@@ -17,7 +17,7 @@ Os endpoints podem ser usados localmente (ambiente de desenvolviemnto), cujo a s
       2) Ativar o ambiente virtual: `source venv/bin/activate`
       3) Baixar as dependências: `pip install -r requirements.txt`
       4) Realizar as migrations: `python manage.py makemigrations` + `python manage.py migrate`
-      5) Popular o User do Banco de Dados: python seeds.py (Opcional)
+      5) Popular o User do Banco de Dados: `python seeds.py` (Opcional)
   - Determinar o usuário para gerar o token pela rota `/auth`, pelo comando: `python manage.py createsuperuser` 
   - Comando para executar o banco de dados: `python manage.py runserver`. 
   - Após rodar a API, por meio da rota `auth/` gerar o token (access) pelo usuário criado.  
