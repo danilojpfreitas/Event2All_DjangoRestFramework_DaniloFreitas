@@ -6,7 +6,8 @@ from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.response import Response
 from django.db.models import Sum
-from rest_framework.views import APIView
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 
 # User OK
@@ -20,6 +21,7 @@ class UsersViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
 
     def create(self, request, *args, **kwargs):
+        """Melhorando a maturidade da API, com o Location"""
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
@@ -28,6 +30,11 @@ class UsersViewSet(viewsets.ModelViewSet):
             response = Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
             response['Location'] = request.build_absolute_uri() + id
             return response
+
+    @method_decorator(cache_page(20))
+    def dispatch(self, *args, **kwargs):
+        """Adicionando Caching ao User"""
+        return super(UsersViewSet, self).dispatch(*args, **kwargs)
 
 
 class UserList(generics.ListAPIView):

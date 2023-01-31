@@ -30,7 +30,8 @@ router.register('guest', GuestViewSet, basename='Guest')
 router.register('content', ToDoListViewSet, basename='ToDoList')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('controle-geral/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('', include(router.urls)),
     path('users/', UserList.as_view()),
     path('users/<int:pk>/', UserDetail.as_view()),
