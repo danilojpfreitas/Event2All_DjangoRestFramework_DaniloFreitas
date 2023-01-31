@@ -7,7 +7,7 @@ API em desenvolvimento com Django Rest Framework, os endpoints do projeto Event2
 Os endpoints podem ser usados localmente (ambiente de desenvolviemnto), cujo a sua documentação é gerada pelo Insomnia Button.
 
 <p align="center">
-<a href="https://insomnia.rest/run/?label=API%20Event2All%20-%20Django%20Rest%20Framework%20-%20Danilo%20Freitas&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdanilojpfreitas%2FEvent2All_DjangoRestFramework_DaniloFreitas%2Fmain%2FInsomnia%2FInsomnia_2023-01-30.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+<a href="https://insomnia.rest/run/?label=API%20Event2All%20-%20Django%20Rest%20Framework%20-%20Danilo%20Freitas&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fdanilojpfreitas%2FEvent2All_DjangoRestFramework_DaniloFreitas%2Fmain%2FInsomnia%2FInsomnia_2023-01-31.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 ---
