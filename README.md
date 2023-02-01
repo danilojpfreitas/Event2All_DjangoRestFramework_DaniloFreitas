@@ -44,10 +44,6 @@ Os endpoints podem ser usados localmente (ambiente de desenvolviemnto), cujo a s
 
 Após rodar localmente a API é possível acessar a documentação pelo Swagger, pela seguitne rota: `swagger/`
 
-
-Obs.: A API necessita de alguns ajustes, futuramente será realizado o deploy (Fev/23)
-
-
 ---
 ## :test_tube: Testes
 
@@ -58,3 +54,5 @@ Os testes unitários e de integração podem ser executar pelo comando: `python 
 ## :keyboard: Desenvolvedor participante
  
 [<sub>Danilo Freitas</sub>](https://github.com/danilojpfreitas)  
+
+Obs.: A API necessita de alguns ajustes, futuramente será realizado o deploy (Fev/23)
