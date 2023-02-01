@@ -11,7 +11,7 @@ Os endpoints podem ser usados localmente (ambiente de desenvolviemnto), cujo a s
 </p>
 
 ---
-## Como usar a API:
+## :bulb: Como usar a API:
   - Após clonar o repositório:
       1) Criar o ambiente virtual: `python3 -m venv ./venv`
       2) Ativar o ambiente virtual: `source venv/bin/activate`
@@ -49,7 +49,7 @@ Obs.: A API necessita de alguns ajustes, futuramente será realizado o deploy (F
 
 
 ---
-## :page_with_curl: Testes
+## :test_tube: Testes
 
 Os testes unitários e de integração podem ser executar pelo comando: `python manage.py test`
 
