@@ -25,12 +25,12 @@ Os endpoints podem ser usados localmente (ambiente de desenvolviemnto), cujo a s
 ---
 ## :memo: Funcionalidades criadas até o momento: 
 
-1. Auth (JWT);
-2. User (Completo);
-3. Event (Completo);
-4. Quotation (Completo);
-5. Guest (Completo);
-6. ToDoList (Completo).
+1. Auth (JWT)
+2. User (Completo)
+3. Event (Completo)
+4. Quotation (Completo)
+5. Guest (Completo)
+6. ToDoList (Completo)
 
 ---
 ## :page_with_curl: Documentação
