@@ -10,10 +10,10 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 
 
-# User OK
+# User
 
 class UsersViewSet(viewsets.ModelViewSet):
-    """Exibindo todos os Users"""
+    """Manipulando os Users"""
     queryset = User.objects.all()
     serializer_class = UserSerializer
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
@@ -21,7 +21,7 @@ class UsersViewSet(viewsets.ModelViewSet):
     search_fields = ['name']
 
     def create(self, request, *args, **kwargs):
-        """Melhorando a maturidade da API, com o Location"""
+        #        Melhorando a maturidade da API, com o Location
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
@@ -53,7 +53,7 @@ class UserDetail(generics.RetrieveAPIView):
 # Event
 
 class EventViewSet(viewsets.ModelViewSet):
-    """Exibindo todos os Events"""
+    """Manipulando os Events"""
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
@@ -62,7 +62,7 @@ class ListEventsByUserId(generics.ListAPIView):
     """Listando os events pelo ID do User"""
 
     def get_queryset(self):
-        queryset = Event.objects.filter(user_id=self.kwargs['pk'])
+        queryset = Event.objects.filter(user_id=self.kwargs['UserID'])
         return queryset
 
     serializer_class = ListEventsByUserIdSerializer
@@ -74,7 +74,7 @@ class ResponseExpectedExpenseByEventId(generics.ListAPIView):
     serializer_class = QuotationSerializer
 
     def list(self, request, *args, **kwargs):
-        queryset = Quotation.objects.filter(event_id=self.kwargs['pk'])
+        queryset = Quotation.objects.filter(event_id=self.kwargs['EventID'])
         response = super().list(request, *args, **kwargs)
         response.data['sum'] = queryset.aggregate(sum=Sum('expected_expense'))['sum']
         return response
@@ -86,7 +86,7 @@ class ResponseActualExpenseByEventId(generics.ListAPIView):
     serializer_class = QuotationSerializer
 
     def list(self, request, *args, **kwargs):
-        queryset = Quotation.objects.filter(event_id=self.kwargs['pk'])
+        queryset = Quotation.objects.filter(event_id=self.kwargs['EventID'])
         response = super().list(request, *args, **kwargs)
         response.data['sum'] = queryset.aggregate(sum=Sum('actual_expense'))['sum']
         return response
@@ -95,7 +95,7 @@ class ResponseActualExpenseByEventId(generics.ListAPIView):
 # Quotation
 
 class QuotationViewSet(viewsets.ModelViewSet):
-    """Exibindo todas as Quotation"""
+    """Manipulando as Quotation"""
     queryset = Quotation.objects.all()
     serializer_class = QuotationSerializer
 
@@ -105,7 +105,7 @@ class ListQuotationByEventId(generics.ListAPIView):
     serializer_class = QuotationSerializer
 
     def get_queryset(self):
-        queryset = Quotation.objects.filter(event_id=self.kwargs['pk'])
+        queryset = Quotation.objects.filter(event_id=self.kwargs['EventID'])
         return queryset
 
 
@@ -113,7 +113,7 @@ class ListQuotationByEventId(generics.ListAPIView):
 
 
 class GuestViewSet(viewsets.ModelViewSet):
-    """Exibindo todos os Guest"""
+    """Manipilando os Guest"""
     queryset = Guest.objects.all()
     serializer_class = GuestSerializer
 
@@ -125,7 +125,7 @@ class ListGuestByEventId(generics.ListAPIView):
     serializer_class = GuestSerializer
 
     def get_queryset(self):
-        queryset = Guest.objects.filter(event_id=self.kwargs['pk'])
+        queryset = Guest.objects.filter(event_id=self.kwargs['EventID'])
         return queryset
 
 
@@ -151,7 +151,8 @@ class ListGuestByEventId(generics.ListAPIView):
 
 
 class ToDoListViewSet(viewsets.ModelViewSet):
-    """Exibindo todos os ToDoList"""
+    """Manipulando o ToDoList"""
+
     queryset = ToDoList.objects.all()
     serializer_class = ToDoListSerializer
 
@@ -159,14 +160,9 @@ class ToDoListViewSet(viewsets.ModelViewSet):
 
 
 class ListToDoListByEventId(generics.ListAPIView):
-    """Listando os Guest pelo ID do Event"""
+    """Listando o ToDoList pelo ID do Event"""
     serializer_class = ToDoListSerializer
 
     def get_queryset(self):
-        queryset = ToDoList.objects.filter(event_id=self.kwargs['pk'])
+        queryset = ToDoList.objects.filter(event_id=self.kwargs['EventID'])
         return queryset
-
-
-
-
-

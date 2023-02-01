@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a45@gpjew00l6t9h!dw32rhk1ej9x!zlgqhuwvj_slcv2tyewx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS=['127.0.0.1', '0.0.0.0']
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_filters',
     'corsheaders',
     'admin_honeypot',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -190,3 +191,13 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+      'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+      }
+   }
+}

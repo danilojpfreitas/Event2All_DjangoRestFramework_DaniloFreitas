@@ -31,9 +31,10 @@ boto==2.49.0
 Bottleneck==1.3.2
 br-nome-gen==1.3.0
 brotlipy==0.7.0
-certifi==2020.6.20
+certifi==2022.12.7
 cffi @ file:///tmp/build/80754af9/cffi_1600699146221/work
 chardet==3.0.4
+charset-normalizer==3.0.1
 click==7.1.2
 cloudpickle @ file:///tmp/build/80754af9/cloudpickle_1598884132938/work
 clyent==1.2.2
@@ -43,6 +44,8 @@ conda-build==3.20.5
 conda-package-handling @ file:///tmp/build/80754af9/conda-package-handling_1603018141399/work
 conda-verify==3.4.2
 contextlib2==0.6.0.post1
+coreapi==2.3.3
+coreschema==0.0.4
 cryptography==39.0.0
 cycler==0.10.0
 Cython @ file:///tmp/build/80754af9/cython_1594831566883/work
@@ -53,7 +56,7 @@ defusedxml==0.6.0
 diff-match-patch @ file:///tmp/build/80754af9/diff-match-patch_1594828741838/work
 distributed @ file:///tmp/build/80754af9/distributed_1605066520644/work
 dj-database-url==1.2.0
-Django==4.1.5
+Django==4.1.6
 django-admin-honeypot @ git+https://github.com/dmpayton/django-admin-honeypot.git@a840496d183df89965eeb33c9a5dd9ea3919dfff
 django-cors-headers==3.13.0
 django-filter==22.1
@@ -63,6 +66,7 @@ djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2
 docutils==0.16
 docx==0.2.4
+drf-yasg==1.21.4
 ecdsa==0.18.0
 entrypoints==0.3
 et-xmlfile==1.0.1
@@ -85,11 +89,12 @@ HeapDict==1.0.1
 html5lib @ file:///tmp/build/80754af9/html5lib_1593446221756/work
 httpcore==0.16.3
 httpx==0.23.3
-idna @ file:///tmp/build/80754af9/idna_1593446292537/work
+idna==3.4
 imageio @ file:///tmp/build/80754af9/imageio_1594161405741/work
 imagesize==1.2.0
 importlib-metadata==6.0.0
 importlib-resources==5.10.2
+inflection==0.5.1
 iniconfig @ file:///tmp/build/80754af9/iniconfig_1602780191262/work
 intervaltree @ file:///tmp/build/80754af9/intervaltree_1598376443606/work
 ipykernel @ file:///tmp/build/80754af9/ipykernel_1596207638929/work/dist/ipykernel-5.3.4-py3-none-any.whl
@@ -98,10 +103,11 @@ ipython-genutils==0.2.0
 ipywidgets @ file:///tmp/build/80754af9/ipywidgets_1601490159889/work
 isort @ file:///tmp/build/80754af9/isort_1602603989581/work
 itsdangerous==1.1.0
+itypes==1.2.0
 jdcal==1.4.1
 jedi @ file:///tmp/build/80754af9/jedi_1592841866100/work
 jeepney @ file:///tmp/build/80754af9/jeepney_1605069705079/work
-Jinja2==2.11.2
+Jinja2==3.1.2
 joblib @ file:///tmp/build/80754af9/joblib_1601912903842/work
 json5==0.9.5
 jsonschema @ file:///tmp/build/80754af9/jsonschema_1602607155483/work
@@ -121,7 +127,7 @@ locket==0.2.0
 lxml @ file:///tmp/build/80754af9/lxml_1603216285000/work
 Mako==1.2.4
 Markdown==3.4.1
-MarkupSafe==1.1.1
+MarkupSafe==2.1.2
 matplotlib @ file:///tmp/build/80754af9/matplotlib-base_1603378225747/work
 mccabe==0.6.1
 mistune==0.8.4
@@ -149,7 +155,7 @@ numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1603570489231/work
 numpydoc @ file:///tmp/build/80754af9/numpydoc_1605117425582/work
 olefile==0.46
 openpyxl @ file:///tmp/build/80754af9/openpyxl_1598113097404/work
-packaging==20.4
+packaging==23.0
 pandas @ file:///tmp/build/80754af9/pandas_1602088120436/work
 pandocfilters @ file:///tmp/build/80754af9/pandocfilters_1605120460739/work
 parso==0.7.0
@@ -205,12 +211,13 @@ QtAwesome @ file:///tmp/build/80754af9/qtawesome_1602272867890/work
 qtconsole @ file:///tmp/build/80754af9/qtconsole_1600870028330/work
 QtPy==1.9.0
 regex @ file:///tmp/build/80754af9/regex_1602786672676/work
-requests @ file:///tmp/build/80754af9/requests_1592841827918/work
+requests==2.28.2
 rfc3986==1.5.0
 rope @ file:///tmp/build/80754af9/rope_1602264064449/work
 rsa==4.9
 Rtree==0.9.4
 ruamel-yaml==0.15.87
+ruamel.yaml.clib==0.2.7
 scikit-image==0.17.2
 scikit-learn @ file:///tmp/build/80754af9/scikit-learn_1598376899566/work
 scipy @ file:///tmp/build/80754af9/scipy_1597686649129/work
@@ -255,7 +262,8 @@ traitlets @ file:///tmp/build/80754af9/traitlets_1602787416690/work
 typing-extensions==4.4.0
 ujson @ file:///tmp/build/80754af9/ujson_1602523317881/work
 unicodecsv==0.14.1
-urllib3 @ file:///tmp/build/80754af9/urllib3_1603305693037/work
+uritemplate==4.1.1
+urllib3==1.26.14
 uvicorn==0.20.0
 watchdog @ file:///tmp/build/80754af9/watchdog_1593447344699/work
 wcwidth @ file:///tmp/build/80754af9/wcwidth_1593447189090/work
