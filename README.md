@@ -14,10 +14,7 @@ Os endpoints podem ser usados localmente (ambiente de desenvolviemnto), cujo a s
 ## Como usar a API:
   - Após clonar o repositório:
   
-      1) Criar o ambiente virtual: 
-      
-      .. code:: console
-        python3 -m venv ./venv
+      - [ ] Criar o ambiente virtual: `python3 -m venv ./venv`
         
       2) Ativar o ambiente virtual: `source venv/bin/activate`
       3) Baixar as dependências: `pip install -r requirements.txt`
