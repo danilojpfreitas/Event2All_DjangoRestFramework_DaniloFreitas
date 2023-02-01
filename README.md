@@ -33,13 +33,11 @@ Os endpoints podem ser usados localmente (ambiente de desenvolviemnto), cujo a s
 6. ToDoList (Completo).
 
 ---
-
-
 ## :page_with_curl: Documentação
 
 1) Insomnia
 
-  A documentação da API encontra-se em `/docs/Doc_Insomnia`.
+  A documentação da API encontra-se em `/Insomnia`.
   Todas as informações da documentação da API podem ser vistas ao clicar em `Run in Insomnia` neste README.   
 
 2) Swagger
@@ -51,7 +49,11 @@ Obs.: A API necessita de alguns ajustes, futuramente será realizado o deploy (F
 
 
 ---
+## :page_with_curl: Testes
 
+Os testes unitários e de integração podem ser executar pelo comando: `python manage.py test`
+
+---
 
 ## :keyboard: Desenvolvedor participante
  
