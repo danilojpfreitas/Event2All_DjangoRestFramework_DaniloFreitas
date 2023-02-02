@@ -1,1 +1,11 @@
+migrations
+tests
+.vscode
+.venv
+.venv/*
 venv
+venv/var
+.env
+.git
+.gitignore
+__pycache__

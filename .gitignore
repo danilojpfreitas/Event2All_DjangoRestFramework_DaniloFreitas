@@ -1,4 +1,13 @@
+migrations
+tests
+.vscode
+.venv
+.venv/*
 venv
+.env
+.git
+.gitignore
+__pycache__
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
