@@ -49,7 +49,7 @@ router.register('content', ToDoListViewSet, basename='ToDoList')
 urlpatterns = [
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('controle-geral/', admin.site.urls),
-    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+#    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('', include(router.urls)),
 #    path('users/', UserList.as_view()),
 #    path('users/<int:pk>/', UserDetail.as_view()),
