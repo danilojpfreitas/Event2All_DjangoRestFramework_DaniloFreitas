@@ -9,3 +9,6 @@ venv
 .gitignore
 setup/__pycache__
 authentication/__pycache__
+event2all/__pycache__
+db.sqlite3
+__pycache__
