@@ -60,7 +60,7 @@ Os seguintes procedimentos devem ser realizados no terminal (aquivo da API) para
   2) `docker compose build`
   3) `docker compose up`
 
-Após esses comandos é possível utilizar a API localmente em `localhost:8000`.
+Após esses comandos é possível utilizar a API localmente em `localhost:8000`
 
 ---
 
