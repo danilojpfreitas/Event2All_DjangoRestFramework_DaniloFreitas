@@ -50,6 +50,19 @@ Após rodar localmente a API é possível acessar a documentação pelo Swagger,
 Os testes unitários e de integração podem ser executar pelo comando: `python manage.py test`
 
 ---
+## :whale2: Docker
+
+Para utilizar a API com a imagem Python no Docker é necessário possuir instalado na máquina o Docker e Docker Compose.
+
+Os seguintes procedimentos devem ser realizados no terminal (aquivo da API) para o funcionamento da API:
+
+  1) `docker compose run web python manage.py migrate`
+  2) `docker compose build`
+  3) `docker compose up`
+
+Após esses comandos é possível utilizar a API localmente em `localhost:8000`.
+
+---
 
 ## :keyboard: Desenvolvedor participante
  
