@@ -52,9 +52,9 @@ Os testes unitários e de integração podem ser executar pelo comando: `python 
 ---
 ## :whale2: Docker
 
-Para utilizar a API com a imagem Python no Docker é necessário possuir instalado na máquina o Docker e Docker Compose.
+Para utilizar a API com a imagem Python do Docker é necessário possuir instalado na máquina o Docker e Docker Compose.
 
-Os seguintes procedimentos devem ser realizados no terminal (aquivo da API) para o funcionamento da API:
+Os seguintes procedimentos devem ser realizados no terminal (aquivo da API) para o seu funcionamento:
 
   1) `docker compose run web python manage.py migrate`
   2) `docker compose build`
