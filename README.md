@@ -21,7 +21,8 @@ Os endpoints podem ser usados localmente (ambiente de desenvolviemnto), cujo a s
   - Determinar o usuário para gerar o token pela rota `/auth`, pelo comando: `python manage.py createsuperuser` 
   - Comando para executar o banco de dados: `python manage.py runserver`
   - Após rodar a API, por meio da rota `auth/` gerar o token (access) pelo usuário criado 
-  Obs.: Necessário Python 3.8 ou superior.
+  
+  Obs.: Necessário Python 3.8 ou superior
   
 ---
 ## :memo: Funcionalidades criadas até o momento: 
